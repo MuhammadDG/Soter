@@ -16,7 +16,8 @@ export class MetricsService implements OnModuleInit {
   public dbErrorsTotal: Counter<string>;
 
   constructor() {
-    this.registry.setDefaultLabels({
+    this.registry.setDefaultLabels
+{
       app: 'soter-backend',
     });
   }
