@@ -25,7 +25,7 @@ async function fetchHealth(): Promise<BackendHealthResponse> {
       throw new Error(`Server responded with ${response.status}`);
     }
 
-    return response.json() as Promise<BAckendHealthResponse>;
+    return response.json() as Promise<BackendHealthResponse>;
   } finally {
     clearTimeout(timeoutId);
   }
@@ -54,8 +54,8 @@ export function useHealthStatus(): HealthStatusResult {
   >({
     queryKey: ['backend-health'],
     queryFn: fetchHealth,
-    reftechInterval: POLL_INTERVAL_MS,
-    reftechIntervalInBackground: true,
+    refetchInterval: POLL_INTERVAL_MS,
+    refetchIntervalInBackground: true,
     retry: 1,
     staleTime: POLL_INTERVAL_MS,
   });
